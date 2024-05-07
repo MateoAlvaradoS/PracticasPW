@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Formularios" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <link rel="stylesheet" href="css/styles.css">
+    
+</head>
+<body>
+    <header>Formularios</header>
+
+    <div id="seccionGeneradorPreguntas">
+        <div class="ordenarEnFilas">
+            <div id="seccionTipoPregunta" class="ordenarEnColumnas">
+                <label for="selectPregunta">Seleccione el tipo de pregunta</label>
+                <select id="selectPregunta" class="form-select">
+                    <option selected value="texto">Pregunta de texto</option>
+                    <option value="multiple">Pregunta de Opción Múltiple</option>
+                    <option value="verFal">Pregunta de Verdadero/Falso</option>
+                </select>
+            </div>
+
+            <div id="seccionNumOpciones" class="ordenarEnColumnas">
+                <label for="txtNumOpciones">Ingrese el numero de opciones</label>
+                <input type="number" id="txtNumOpciones" class="form-control">
+            </div>
+        </div>
+        
+        <button id="btnGenerarPregunta">Crear Pregunta</button>
+    </div>
+
+    <form id="formulario"></form>
+
+    <button id="btnGenerarCuestionario">Aceptar</button>
+
+
+    
+</body>
+<script src="js/script.js"></script>
+</html>

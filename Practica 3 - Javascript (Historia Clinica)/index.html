@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Clínica</title>
+    
+    <link rel="shortcut icon" href="images/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <span class="fs-4 colorBlanco">Historia Clínica</span>
+        </a>
+  
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="#inicio" class="nav-link colorBlanco">Inicio</a></li>
+          <li class="nav-item"><a href="#seccionAgendarCita" class="nav-link colorBlanco">Agendar Cita</a></li>
+          <li class="nav-item"><a href="#seccionAgregarHijo" class="nav-link colorBlanco">Agregar Hijo</a></li>
+          <li class="nav-item"><a href="#seccionRegistroPaciente" class="nav-link colorBlanco">Registrar Paciente</a></li>
+        </ul>
+    </header>
+
+    <div class="container">
+        <!-- Seccion Datos del Paciente -->
+        <div id="inicio" class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10"><h2>Datos Paciente</h2></div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <h5>Seleccione un Paciente</h5>
+                <select id="pacientesSelect" class="form-select">
+                    <!-- Las opciones de ciudades se llenarán dinámicamente -->
+                </select>
+            </div>
+            <div class="col-md-7"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <div id="imagenContainer2">
+                    <img id="imagenSeleccionada2" src="images/fotoDefault.png" class="img-thumbnail" alt="Imagen seleccionada">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Apellidos</span>
+                    <input id="txtApellidosMostrar" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Nombres</span>
+                    <input id="txtNombresMostrar" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Dirección</span>
+                    <input id="txtDireccionMostrar" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Teléfono</span>
+                    <input id="txtTelefonoMostrar" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Fecha y Hora de Nacimiento</span>
+                    <input id="txtFechaNacimientoMostrar" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Edad Exacta</span>
+                    <input id="txtEdadExactaMostrar" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
+                </div>
+
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Ciudad y País de Nacimiento</span>
+                    <input id="txtCiudadPaisMostrar" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" disabled>
+                </div>
+
+            </div>
+            <div class="col-md-1">
+
+            </div>
+        </div>
+
+        <!-- Seccion Consultas -->
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10"></div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+
+            <div id="seccionAgendarCita" class="col-md-4">
+                <h3>Agendar Cita Médica</h3>
+
+                <form id="datosConsulta">
+                    <label for="fechaCita" class="form-label">Fecha de Cita</label>
+                    <input type="datetime-local" id="fechaCita" class="form-control">
+
+
+                    <label for="especialidadSelect" class="form-label">Epecialidad</label>
+                    <select id="especialidadSelect" class="form-select">
+                        <option selected value="general">Medicina General</option>
+                        <option value="pediatria">Pediatría</option>
+                        <option value="ginecologia">Ginecología</option>
+                        <option value="cardiologia">Cardiología</option>
+                        <option value="dermatologia">Dermatología</option>
+                        <option value="oftalmologia">Oftalmología</option>
+                        <option value="otorrinolaringologia">Otorrinolaringología</option>
+                        <option value="endocrinologia">Endocrinología</option>
+                        <option value="neurologia">Neurología</option>
+                        <option value="psiquiatria">Psiquiatría</option>
+                      </select>
+
+                    <button id="btnAgendar" type="button" class="btn btn-primary">Agendar Cita</button>
+                </form>
+            </div>
+
+            <div class="col-md-6">
+                <h3>Consultas Médicas Agendadas</h3>
+                <div class="table-responsive">
+                    <table class="table" id="tablaCitas">
+                        <thead>
+                            <tr>
+                              <th scope="col">Fecha y Hora</th>
+                              <th scope="col">Especialidad</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+
+                          </tbody>
+                    </table>
+                  </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div id="seccionAgregarHijo" class="col-md-4">
+                <h3>Agregar Hijo</h3>
+                <form id="datosHijos">
+                    <label for="hijosSelect" class="form-label">Personas Registradas</label>
+                    <select id="hijosSelect" class="form-select">
+
+                      </select>
+                    <button id="btnAgregarHijo" type="button" class="btn btn-primary">Agregar Hijo</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h3>Hijos Registrados</h3>
+                <div class="table-responsive">
+                    <table class="table" id="tablaHijos">
+                        <thead>
+                            <tr>
+                              <th scope="col">Apellidos</th>
+                              <th scope="col">Nombres</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+
+                          </tbody>
+                    </table>
+                  </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row border-top separadorSeccion"></div> <!-- Divisor horizontal -->
+
+        <!-- Seccion Registro de Pacientes -->
+        <div id="seccionRegistroPaciente" class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10"><h2>Registrar Paciente</h2></div>
+            <div class="col-md-1"></div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <h5>Foto del Paciente</h5>
+                <div id="imagenContainer">
+                    <img id="imagenSeleccionada" src="images/fotoDefault.png" class="img-thumbnail" alt="Imagen seleccionada">
+                </div>
+                <input class="form-control" type="file" id="fotoInput">
+            </div>
+            
+            <div class="col-md-6">
+                <h5>Ingresar Datos del Paciente</h5>
+                <form id="datosPaciente">
+                    <div class="row">
+                        <div class="col">
+                            <label for="txtApellidos" class="form-label">Apellidos</label>
+                            <input id="txtApellidos" type="text" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="txtNombres" class="form-label">Nombres</label>
+                            <input id="txtNombres" type="text" class="form-control">
+                        </div>
+                    </div>
+    
+                    <label for="txtDireccion" class="form-label">Dirección</label>
+                    <input id="txtDireccion" type="text" class="form-control">
+    
+                    <label for="txtTelefono" class="form-label">Teléfono</label>
+                    <input id="txtTelefono" type="text" class="form-control">
+        
+                    
+                    <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                    <input type="datetime-local" id="fechaNacimiento" class="form-control">
+    
+    
+                    <label for="paisSelect" class="form-label">País de Nacimiento</label>
+                    <select id="paisSelect" class="form-select">
+                        <option selected value="ecuador">Ecuador</option>
+                        <option value="colombia">Colombia</option>
+                        <option value="brasil">Brasil</option>
+                      </select>
+                    
+                    <label for="ciudadSelect" class="form-label">Ciudad de Nacimiento</label>
+                    <select id="ciudadSelect" class="form-select">
+                        <!-- Las opciones de ciudades se llenarán dinámicamente -->
+                    </select>
+                    
+                    <div id="alertaGuardar" class="alert alert-primary" role="alert"></div>
+                    <button id="btnGuardar" type="button" class="btn btn-primary">Guardar</button>
+
+
+                    
+                </form>
+            </div>
+    
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+   
+
+    
+
+    <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="#inicio" class="nav-link colorBlanco">Inicio</a></li>
+          <li class="nav-item"><a href="#seccionAgendarCita" class="nav-link colorBlanco">Agendar Cita</a></li>
+          <li class="nav-item"><a href="#seccionAgregarHijo" class="nav-link colorBlanco">Agregar Hijo</a></li>
+          <li class="nav-item"><a href="#seccionRegistroPaciente" class="nav-link colorBlanco">Registrar Paciente</a></li>
+        </ul>
+        <p class="text-center text-body-secondary colorBlanco">© 2024 Company, Inc</p>
+      </footer>
+
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

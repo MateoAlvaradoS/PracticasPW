@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0B5ED7;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.colorBlanco{
+    color: white;
+}
+
+h2,h3,h5{
+    color: #0B5ED7;
+}
+
+main {
+    padding: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+footer {
+    background-color: #0B5ED7;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+#imagenContainer, #imagenContainer2 {
+    width: 200px; /* Ancho fijo del contenedor de la imagen */
+    height: 200px; /* Altura fija del contenedor de la imagen */
+    border-radius: 50%; /* Hacer que el contenedor sea redondo */
+    overflow: hidden; /* Ocultar cualquier parte de la imagen que sobresalga del contenedor */
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5); /* Sombra difuminada */
+
+    margin-top: 10px;
+    margin-bottom: 15px; /* Define el margen inferior deseado para todas las filas */
+}
+
+#imagenSeleccionada, #imagenSeleccionada2 {
+    width: 100%; /* Ajustar la imagen al ancho del contenedor */
+    height: auto; /* Mantener la relación de aspecto de la imagen */   
+}
+
+#fotoInput, input{
+    padding: 10px 10px 10px 10px;
+}
+
+.centradoVertical{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.row {
+    margin-top: 10px;
+    margin-bottom: 10px; /* Define el margen inferior deseado para todas las filas */
+}
+
+input, button, select, h2, h3, h4, h5{
+    margin-top: 5px;
+    margin-bottom: 5px; /* Define el margen inferior deseado para todas las filas */
+}
+
+.input-resaltado {
+    border: 1px solid #2179fd; /* Cambia el grosor y el color del borde según sea necesario */
+    border-radius: 5px; /* Agrega bordes redondeados */
+    padding: 8px 10px; /* Ajusta el espaciado interno */
+    color: #2179fd;
+}
+
+.separadorSeccion{
+    border: 3px solid #0B5ED7;
+}
