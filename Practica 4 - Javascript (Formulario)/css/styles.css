@@ -17,8 +17,8 @@ header {
 }
 
 input[type="text"], select{
-    width: 250px;
-    height: 18px;
+    /*width: 250px;
+    height: 18px;*/
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -29,6 +29,12 @@ select {
 
 #btnGenerarCuestionario {
     margin: 10px;
+}
+
+.modal-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 /*div{

@@ -26,13 +26,19 @@ function cambioTipoP(){
 
 document.getElementById("selectPregunta").addEventListener("change", cambioTipoP);
 
+// Función para mostrar un mensaje de error en el modal ===========================================
+function mostrarError(mensaje) {
+    document.getElementById("mensajeError").textContent = mensaje;
+    $('#modalAgregarSecciones').modal('show');
+}
+
 // Funcion para generar las preguntas escogiendo el tipo de pregunta deseado =====================
 function generarPreguntas(){
     let tipoPregunta = document.getElementById("selectPregunta").value;
     let valorIngresado = document.getElementById("txtNumOpciones").valueAsNumber;
 
     if(tipoPregunta=="multiple" && (isNaN(valorIngresado) || valorIngresado <= 0)){
-        console.log("Error")
+        mostrarError("Ingrese el número de opciones");
     }
     else{
         numPreguntas++;
