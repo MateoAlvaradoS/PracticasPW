@@ -102,15 +102,27 @@ function generarFormulario(){
     respuestas = [];
     for (var i = 0; i < tipoPreguntasGeneradas.length; i++) {
         var subArray = tipoPreguntasGeneradas[i];
-        // Recorriendo cada subarray
-        console.log(subArray[0] + subArray[1]);
 
         if (subArray[1]=="texto"){
             if (document.getElementById("txtPregunta" + subArray[0]).value.length > 0 && document.getElementById("txtRPregunta" + subArray[0]).value.length > 0){
                 respuestas.push([document.getElementById("txtPregunta" + subArray[0]).value, document.getElementById("txtRPregunta" + subArray[0]).value]);
             }
             else {
-                console.log("Los cuadros estan vacios");
+                mostrarError("Complete la información faltante");
+            }
+
+            if(document.getElementById("txtPregunta" + subArray[0]).value.length <= 0){
+                document.getElementById("txtPregunta" + subArray[0]).classList.add("border", "border-danger");
+            }
+            else {
+                document.getElementById("txtPregunta" + subArray[0]).classList.remove("border", "border-danger");
+            }
+
+            if(document.getElementById("txtRPregunta" + subArray[0]).value.length <= 0){
+                document.getElementById("txtRPregunta" + subArray[0]).classList.add("border", "border-danger");
+            }
+            else {
+                document.getElementById("txtRPregunta" + subArray[0]).classList.remove("border", "border-danger");
             }
         }
         
@@ -132,7 +144,7 @@ function generarFormulario(){
                 console.log("las opciones estas llenas");
             }
             else if (banderaLlenado==false){
-                console.log("las opciones estas vacias");
+                mostrarError("Complete la información faltante");
             }
             else if (banderaSeleccionado==false){
                 console.log("no se ha seleccionado una opcion");
@@ -144,6 +156,7 @@ function generarFormulario(){
             var radiobuttons = document.getElementsByName("verFal"+subArray[0]);
 
             if (document.getElementById("txtPregunta" + subArray[0]).value.length > 0){
+                document.getElementById("txtPregunta" + subArray[0]).classList.remove("border", "border-danger");
                 for (var i = 0; i < radiobuttons.length; i++) {
                     // Verificar si el radiobutton actual está marcado
                     if (radiobuttons[i].checked) {
@@ -152,11 +165,19 @@ function generarFormulario(){
                         break; // Salir del bucle si al menos uno está marcado
                     }
                 }
-
-                if (banderaSeleccionado == false) console.log("No se ha seleccionado la respuesta");
             }
             else {
-                console.log("No se ha ingresado la pregunta");
+                mostrarError("Complete la información faltante");
+                /* Ingresar sobre input pregunta vacia */
+                document.getElementById("txtPregunta" + subArray[0]).classList.add("border", "border-danger");
+            }
+
+            if (banderaSeleccionado == false){
+                mostrarError("Complete la información faltante");
+                for (var i = 0; i < radiobuttons.length; i++) {
+                    // Verificar si el radiobutton actual está marcado
+                    radiobuttons[i].classList.add("border", "border-danger");
+                }
             }
         }
     }
