@@ -1,72 +1,4 @@
-limpiarElementos();
-//Funciones Selectores Paises y Ciudades =============================================================================
-// Array de ciudades por país
-var ciudadesPorPais = {
-    ecuador: ["Quito", "Cuenca"],
-    colombia: ["Bogotá", "Medellín"],
-    brasil: ["Sao Paulo", "Brasilia"]
-};
-
-// Función para actualizar las ciudades cuando se cambia el país
-function actualizarCiudades() {
-    var paisSeleccionado = document.getElementById("paisSelect").value;
-    var ciudades = ciudadesPorPais[paisSeleccionado];
-
-    // Limpiar las opciones anteriores
-    var ciudadSelect = document.getElementById("ciudadSelect");
-    ciudadSelect.innerHTML = '';
-
-    // Agregar nuevas opciones de ciudad
-    ciudades.forEach(function(ciudad) {
-        var option = document.createElement("option");
-        option.text = ciudad;
-        option.value = ciudad;
-        ciudadSelect.appendChild(option);
-    });
-}
-
-// Llamar a la función para cargar las ciudades iniciales
-actualizarCiudades();
-
-// Agregar un evento para actualizar las ciudades cuando se cambie el país
-document.getElementById("paisSelect").addEventListener("change", actualizarCiudades);
-
-//Limpiar Vista ===========================================================================================================
-function limpiarElementos(){
-    document.getElementById("txtApellidos").value = "";
-    document.getElementById("txtNombres").value = "";
-    document.getElementById("txtDireccion").value = "";
-    document.getElementById("txtTelefono").value = "";
-    document.getElementById("fechaNacimiento").value = "";
-    document.getElementById("imagenSeleccionada").src = "images/fotoDefault.png";
-    ocultarAlerta("alertaGuardar");
-}
-
-//Funciones para vista de la imagen a subir ================================================================================
-document.getElementById("fotoInput").addEventListener("change", function(event) {
-    var imagen = document.getElementById("imagenSeleccionada");
-    var imagenContainer = document.getElementById("imagenContainer");
-
-    // Verificar si se seleccionó un archivo
-    if (event.target.files && event.target.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function(e) {
-            // Mostrar la imagen seleccionada
-            imagen.src = e.target.result;
-            imagen.style.display = "block";
-        };
-
-        // Leer el archivo como una URL de datos
-        reader.readAsDataURL(event.target.files[0]);
-    } else {
-        // Si no se selecciona ningún archivo, ocultar la imagen
-        imagen.src = "images/fotoDefault.png"; // Establecer la imagen por defecto
-        imagen.style.display = "block"; // Asegurarse de que la imagen sea visible
-    }
-});
-
-// Datos Personas Ingresadas =================================================================================================
+// Datos Personas Ingresadas ========================================================================================================================
 var personas = [
     {
         apellidos: "Alvarado Suarez",
@@ -128,10 +60,85 @@ var hijos = [
         nombresPadre: "Kevin Mateo",
         apellidosHijo: "Martinez Diaz",
         nombresHijo: "Juan Pablo"
+    },
+    {
+        apellidosPadre: "Martinez Diaz",
+        nombresPadre: "Juan Pablo",
+        apellidosHijo: "Gomez Perez",
+        nombresHijo: "Laura Valentina"
     }
-]
+];
 
-//Mostrar Datos Tabla Personas ========================================================================================================
+limpiarElementos();
+
+//Funciones Selectores Paises y Ciudades ============================================================================================================
+// Array de ciudades por país
+var ciudadesPorPais = {
+    ecuador: ["Quito", "Cuenca"],
+    colombia: ["Bogotá", "Medellín"],
+    brasil: ["Sao Paulo", "Brasilia"]
+};
+
+// Función para actualizar las ciudades cuando se cambia el país
+function actualizarCiudades() {
+    var paisSeleccionado = document.getElementById("paisSelect").value;
+    var ciudades = ciudadesPorPais[paisSeleccionado];
+
+    // Limpiar las opciones anteriores
+    var ciudadSelect = document.getElementById("ciudadSelect");
+    ciudadSelect.innerHTML = '';
+
+    // Agregar nuevas opciones de ciudad
+    ciudades.forEach(function(ciudad) {
+        var option = document.createElement("option");
+        option.text = ciudad;
+        option.value = ciudad;
+        ciudadSelect.appendChild(option);
+    });
+}
+
+// Llamar a la función para cargar las ciudades iniciales
+actualizarCiudades();
+
+// Agregar un evento para actualizar las ciudades cuando se cambie el país
+document.getElementById("paisSelect").addEventListener("change", actualizarCiudades);
+
+//Limpiar Vista =====================================================================================================================================
+function limpiarElementos(){
+    document.getElementById("txtApellidos").value = "";
+    document.getElementById("txtNombres").value = "";
+    document.getElementById("txtDireccion").value = "";
+    document.getElementById("txtTelefono").value = "";
+    document.getElementById("fechaNacimiento").value = "";
+    document.getElementById("imagenSeleccionada").src = "images/fotoDefault.png";
+    ocultarAlerta("alertaGuardar");
+}
+
+//Funciones para vista de la imagen a subir =========================================================================================================
+document.getElementById("fotoInput").addEventListener("change", function(event) {
+    var imagen = document.getElementById("imagenSeleccionada");
+    var imagenContainer = document.getElementById("imagenContainer");
+
+    // Verificar si se seleccionó un archivo
+    if (event.target.files && event.target.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            // Mostrar la imagen seleccionada
+            imagen.src = e.target.result;
+            imagen.style.display = "block";
+        };
+
+        // Leer el archivo como una URL de datos
+        reader.readAsDataURL(event.target.files[0]);
+    } else {
+        // Si no se selecciona ningún archivo, ocultar la imagen
+        imagen.src = "images/fotoDefault.png"; // Establecer la imagen por defecto
+        imagen.style.display = "block"; // Asegurarse de que la imagen sea visible
+    }
+});
+
+//Mostrar Datos Tabla Personas ======================================================================================================================
 // Función para mostrar los datos en la tabla
 function mostrarTablaCitas() {
     var tabla = document.getElementById("tablaCitas");
@@ -160,8 +167,7 @@ function mostrarTablaCitas() {
     });
 }
 
-//Rellenar objetos Select
-// Función para llenar el select con los nombres de los pacientes
+// Función para llenar el select con los nombres de los pacientes ===================================================================================
 function llenarSelectPacientes(objeto) {
     var select = document.getElementById(objeto);
 
@@ -174,13 +180,25 @@ function llenarSelectPacientes(objeto) {
         option.text = persona.apellidos + " " + persona.nombres ;
         select.add(option);
     });
-}
 
+    if (objeto == "hijosSelect"){
+        var textoAEliminar = document.getElementById("txtApellidosMostrar").value + " " + document.getElementById("txtNombresMostrar").value;
+        
+        // Buscar el índice del elemento que coincide con el texto a eliminar
+        for (var i = 0; i < select.options.length; i++) {
+            if (select.options[i].text === textoAEliminar) {
+                // Eliminar el elemento con el índice encontrado
+                select.remove(i);
+                break; // Terminamos el bucle una vez que encontramos y eliminamos el elemento
+            }
+        }
+    }
+}
 // Llamar a la función para llenar el select con los nombres de los pacientes
 llenarSelectPacientes("pacientesSelect");
 llenarSelectPacientes("hijosSelect");
 
-//Mostrar Datos Paciente ======================================================================================
+//Mostrar Datos Paciente ============================================================================================================================
 function mostrarPaciente() {
     personas.forEach(function(elemento) {
         if(document.getElementById("pacientesSelect").value == elemento.apellidos + " " + elemento.nombres){
@@ -206,24 +224,27 @@ function mostrarPaciente() {
         }
     });
     mostrarTablaCitas();
+    llenarSelectPacientes("hijosSelect");
+    mostrarTablaHijos();
 }
-
 mostrarPaciente();
-
+mostrarTablaHijos();
 document.getElementById("pacientesSelect").addEventListener("change", mostrarPaciente);
 
+// Funcion para mostrar alerta cuando se ingresa o falta un dato en el ingreso de paciente ==========================================================
 function mostrarAlertaConTexto(objeto, texto) {
     var alerta = document.getElementById(objeto);
     alerta.innerText = texto; // o alerta.innerHTML = texto; según tus necesidades
     alerta.style.display = "block";
 }
 
+// Funcion para ocultar alerta cuando se ingresa o falta un dato en el ingreso de paciente ==========================================================
 function ocultarAlerta(objeto) {
     var alerta = document.getElementById(objeto);
     alerta.style.display = "none";
 }
 
-//Guardar Nuevo Paciente ================================================================================================
+//Guardar Nuevo Paciente ============================================================================================================================
 function guardarPaciente(){
     if(!validarCadena(document.getElementById("txtApellidos").value)){
         mostrarAlertaConTexto("alertaGuardar", "Apellidos incorrectos");
@@ -253,9 +274,9 @@ function guardarPaciente(){
         limpiarElementos();
     }
 }
-
 document.getElementById("btnGuardar").addEventListener("click", guardarPaciente);
-//Guardar Nueva Cita ==================================================================================================
+
+//Guardar Nueva Cita ================================================================================================================================
 function agendarCita(){
     if(validarFecha(document.getElementById("fechaCita").value.trim() == '' || document.getElementById("fechaCita").value)){
         console.log("Fecha Cita");
@@ -272,11 +293,9 @@ function agendarCita(){
         mostrarTablaCitas();
     }
 }
-
-
-
 document.getElementById("btnAgendar").addEventListener("click", agendarCita);
-//Validaciones ========================================================================================================
+
+//Validaciones ======================================================================================================================================
 function validarTelefono(telefono){
     // Expresión regular para validar que la cadena contenga solo numeros y tamaño de 10 caracteres
     var regex = /^[0-9]{10}$/;
@@ -311,7 +330,7 @@ function validarFecha(fecha){
     else return false;
 }
 
-//Calcular Edad Exacta =============================================================================================
+//Calcular Edad Exacta ==============================================================================================================================
 function edadExacta(fechaNacimiento){
     // Parsea la fecha de nacimiento
     var fechaNacimiento = new Date(fechaNacimiento);
@@ -353,3 +372,59 @@ function edadExacta(fechaNacimiento){
 
     return (edadEnAños + " años, " + meses + " meses y " + dias + " días.");
 }
+
+//Mostrar Datos Tabla Hijos =========================================================================================================================
+// Función para mostrar los datos en la tabla
+function mostrarTablaHijos() {
+    var tabla = document.getElementById("tablaHijos");
+    var tbody = tabla.getElementsByTagName("tbody")[0];
+
+    // Limpiar el contenido existente de la tabla
+    tbody.innerHTML = '';
+
+    // Iterar sobre el array de personas y agregar una fila por cada persona
+    hijos.forEach(function(elemento) {
+        if(document.getElementById("txtApellidosMostrar").value==elemento.apellidosPadre && document.getElementById("txtNombresMostrar").value==elemento.nombresPadre){
+            var fila = document.createElement("tr");
+
+            // Agregar celdas con los datos de la persona
+            var celdaFecha = document.createElement("td");
+            celdaFecha.textContent = elemento.apellidosHijo;
+            fila.appendChild(celdaFecha);
+
+            var celdaEspecialidad = document.createElement("td");
+            celdaEspecialidad.textContent = elemento.nombresHijo;
+            fila.appendChild(celdaEspecialidad);
+
+            // Agregar la fila a la tabla
+            tbody.appendChild(fila);
+        }
+    });
+}
+
+// Funcion para agregar un hijo =====================================================================================================================
+function agregarHijo (){
+    let banderaNuevo = true;
+
+    var padre = document.getElementById("pacientesSelect").value.split(" ");
+    var hijo = document.getElementById("hijosSelect").value.split(" ");
+
+    var apellidosPadre = padre[0] + " " + padre[1];
+    var nombresPadre = padre[2] + " " + padre[3];
+    var apellidosHijo = hijo[0] + " " + hijo[1];
+    var nombresHijo = hijo[2] + " " + hijo[3];
+
+    hijos.forEach(function(elemento) {
+        if (elemento.apellidosPadre == apellidosPadre && elemento.nombresPadre == nombresPadre){
+            if(elemento.apellidosHijo == apellidosHijo && elemento.nombresHijo == nombresHijo){
+                banderaNuevo = false;
+            }
+        }
+    });
+
+    if (banderaNuevo == true){
+        hijos.push({apellidosPadre, nombresPadre, apellidosHijo, nombresHijo});
+    }
+    mostrarTablaHijos();
+}
+document.getElementById("btnAgregarHijo").addEventListener("click", agregarHijo);
