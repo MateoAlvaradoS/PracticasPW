@@ -10,6 +10,15 @@ header {
     flex-direction: column;
 }
 
+.margenes{
+    margin: 20px;
+}
+
+.margenesBoton{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .ordenarEnFilas{
     display: flex;
     flex-direction: row;
@@ -17,10 +26,12 @@ header {
 }
 
 input[type="text"], select{
-    /*width: 250px;
-    height: 18px;*/
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 300px;
 }
 
 select {
@@ -36,23 +47,3 @@ select {
     flex-direction: row;
     justify-content: space-between;
 }
-
-/*div{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-}
-
-form div label {
-    display: block;
-}
-
-input, label, select{
-    width: 450px;
-    height: 25px;
-}
-
-button{
-    width: 200px;
-    height: auto;
-}*/

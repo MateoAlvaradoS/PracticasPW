@@ -9,11 +9,11 @@
     
 </head>
 <body>
-    <header>Formularios</header>
+    <header>Formulario</header>
 
     <div id="seccionGeneradorPreguntas">
         <div class="ordenarEnFilas">
-            <div id="seccionTipoPregunta" class="ordenarEnColumnas">
+            <div id="seccionTipoPregunta" class="ordenarEnColumnas margenes">
                 <label for="selectPregunta">Seleccione el tipo de pregunta</label>
                 <select id="selectPregunta" class="form-select">
                     <option selected value="texto">Pregunta de texto</option>
@@ -22,18 +22,24 @@
                 </select>
             </div>
 
-            <div id="seccionNumOpciones" class="ordenarEnColumnas">
+            <div id="seccionNumOpciones" class="ordenarEnColumnas margenes">
                 <label for="txtNumOpciones">Ingrese el numero de opciones</label>
                 <input type="number" id="txtNumOpciones" class="form-control">
             </div>
         </div>
         
-        <button id="btnGenerarPregunta">Crear Pregunta</button>
+        <button id="btnGenerarPregunta" class="margenesBoton">Crear Pregunta</button>
     </div>
 
     <form id="formulario"></form>
 
-    <button id="btnGenerarCuestionario">Aceptar</button>
+    <button id="btnGenerarCuestionario" class="margenes">Generar Formulario</button>
+
+    <!-- Sección para mostrar las preguntas y respuestas una vez generado el formulario-->
+
+    <div id="mostrarPreguntasRespuestas" class="margenes">
+
+    </div>
 
     <!-- Sección Pantalla emergente de aviso/advertencia -->
     <div class="modal fade" id="modalAgregarSecciones" tabindex="-1" role="dialog" aria-labelledby="modalAgregarSeccionesLabel" aria-hidden="true">
