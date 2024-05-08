@@ -1,34 +1,45 @@
 body {
     display: flex;
-    height: 600px;
+    height: 700px;
     flex-direction: column;
-    padding: 1em;
 }
 
 #main{
     display: flex;
-    flex: 1;
+    flex: row;
+    height: 60%;
 }
 
 header, footer{
     background-color: aquamarine;
-    margin:1px;
+}
+
+header {
+    height: 20%;
+}
+
+footer {
+    height: 10%;
 }
 
 article, nav, aside, header, footer{
-    flex:1;
-    padding: 1rem;
-    margin:1px;
+    margin:5px;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
 }
 
 aside{
     background-color: yellow;
+    width: 25%;
 }
 
 article{
     background-color: cornflowerblue;
+    width: 50%;
 }
 
 nav{
     background-color: pink;
+    width: 25%;
 }
