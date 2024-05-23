@@ -9,18 +9,23 @@
 <body>
     <h1>Mantenimiento de Personas</h1>
     <form id="personaForm">
-        <label for="nombre">Nombre:</label>
+        <label for="txtApellido">Apellido:</label>
+        <input type="text" id="txtApellido" name="apellido" required>
+        <label for="txtNombre">Nombre:</label>
         <input type="text" id="txtNombre" name="nombre" required>
-        <label for="edad">Edad:</label>
+        <label for="txtEdad">Edad:</label>
         <input type="number" id="txtEdad" name="edad" required>
-        <button type="submit">Agregar Persona</button>
+
+
+        <button id="btnLocalStorage">Guardar en Local Storage</button>
+        <button id="btnSessionStorage">Guardar en Session Storage</button>
     </form>
 
     <!-- Tabla Local Storage-->
-    <div class="col-md-6">
+    <div>
         <h3>Local Storage</h3>
         <div class="table-responsive">
-            <table class="table" id="tablaHijos">
+            <table class="table" id="tblLocal">
                 <thead>
                     <tr>
                       <th scope="col">Apellidos</th>
@@ -34,13 +39,12 @@
             </table>
           </div>
     </div>
-    <div class="col-md-1"></div>
 
     <!-- Tabla Session Storage-->
-    <div class="col-md-6">
+    <div>
         <h3>Session Storage</h3>
         <div class="table-responsive">
-            <table class="table" id="tablaHijos">
+            <table class="table" id="tblSession">
                 <thead>
                     <tr>
                       <th scope="col">Apellidos</th>
@@ -54,11 +58,6 @@
             </table>
           </div>
     </div>
-
-
-    <button id="btnLocalStorage">Guardar en Local Storage</button>
-    <button id="btnSessionStorage">Guardar en Session Storage</button>
-
 
     <script src="script.js"></script>
 </body>
