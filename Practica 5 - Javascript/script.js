@@ -1,3 +1,4 @@
+// Funcion Agregar Local Storage ==================================================================
 function agregarLocal (){
     localStorage.setItem(localStorage.length, JSON.stringify({
         apellido: document.getElementById("txtApellido").value,
@@ -9,7 +10,7 @@ function agregarLocal (){
 
 document.getElementById("btnLocalStorage").addEventListener('click', agregarLocal);
 
-
+// Funcion agregar Session Storage ================================================================
 function agregarSession (){
     sessionStorage.setItem(sessionStorage.length, JSON.stringify({
         apellido: document.getElementById("txtApellido").value,
@@ -21,8 +22,7 @@ function agregarSession (){
 
 document.getElementById("btnSessionStorage").addEventListener('click', agregarSession);
 
-
-
+// Funcion Actualizar Tabla Local Storage =========================================================
 function mostrarTablaLocal() {
     var tabla = document.getElementById("tblLocal");
     var tbody = tabla.getElementsByTagName("tbody")[0];
@@ -56,6 +56,7 @@ function mostrarTablaLocal() {
 
 mostrarTablaLocal();
 
+// Funcion Actualizar Tabla Session Storage =======================================================
 function mostrarTablaSession() {
     var tabla = document.getElementById("tblSession");
     var tbody = tabla.getElementsByTagName("tbody")[0];
@@ -65,7 +66,7 @@ function mostrarTablaSession() {
 
     // Iterar sobre el array de personas y agregar una fila por cada persona
     for(let i=0;i <sessionStorage.length; i++){
-        let elemento = JSON.parse(sessionStorage.getItem(localStorage.key(i)));
+        let elemento = JSON.parse(sessionStorage.getItem(sessionStorage.key(i)));
 
         var fila = document.createElement("tr");
 
