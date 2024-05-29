@@ -1,5 +1,5 @@
 <?php
-// Conexion a la base de datos
+// Conexion a la base de datos ====================================================================
 function getDatabaseConnection() {
     // Datos de conexión
     $servername = "localhost";
@@ -19,7 +19,7 @@ function getDatabaseConnection() {
     return $conn;
 }
 
-// Funcion generica para ingresar datos en una tabla
+// Funcion generica para ingresar datos en una tabla ==============================================
 function insertar($object) {
     // Obtener la conexión a la base de datos
     $conn = getDatabaseConnection();
@@ -46,7 +46,7 @@ function insertar($object) {
     $conn->close();
 }
 
-// Funcion generica para eliminar datos en una tabla
+// Funcion generica para eliminar datos en una tabla ==============================================
 function eliminar($tableName, $conditions) {
     // Obtener la conexión a la base de datos
     $conn = getDatabaseConnection();
@@ -76,7 +76,7 @@ function eliminar($tableName, $conditions) {
     $conn = null;
 }
 
-// Funcion generica para actualizar datos en una tabla
+// Funcion generica para actualizar datos en una tabla ============================================
 function actualizar($object, $conditions) {
     // Obtener la conexión a la base de datos
     $conn = getDatabaseConnection();
@@ -121,5 +121,4 @@ function actualizar($object, $conditions) {
     // Cerrar la conexión
     $conn = null;
 }
-
 ?>
