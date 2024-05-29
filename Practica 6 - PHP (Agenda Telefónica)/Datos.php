@@ -1,4 +1,5 @@
 <?php
+// Conexion a la base de datos
 function getDatabaseConnection() {
     // Datos de conexión
     $servername = "localhost";
@@ -18,6 +19,7 @@ function getDatabaseConnection() {
     return $conn;
 }
 
+// Funcion generica para ingresar datos en una tabla
 function insertar($object) {
     // Obtener la conexión a la base de datos
     $conn = getDatabaseConnection();
