@@ -1,0 +1,5 @@
+package com.prograWebUcuenca.ws.rest.service;
+
+public class ServiceLoginJR {
+
+}

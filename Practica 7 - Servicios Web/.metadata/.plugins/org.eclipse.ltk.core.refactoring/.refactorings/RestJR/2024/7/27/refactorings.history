@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;RestJR/src/main/java/com/javarevolutions&apos; to &apos;prograWebUcuenca&apos;" description="Rename resource &apos;javarevolutions&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/com/javarevolutions" name="prograWebUcuenca" stamp="1719850816031" updateReferences="true"/>
+</session>
