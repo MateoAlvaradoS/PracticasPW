@@ -1,0 +1,17 @@
+<h1><%= @articulo.titulo %></h1>
+<p><%= @articulo.descripcion %></p>
+<ul>
+<li><%= link_to 'Editar', edit_articulo_path(@articulo) %></li>
+<li>
+<%= link_to 'Eliminar', articulo_path(@articulo),
+data: {
+turbo_method: :delete,
+turbo_confirm: '¿Estás seguro?'
+}%>
+</li>
+<li><%= link_to 'Volver', root_path %></li>
+<ul>
+<h2>Comentarios:</h2>
+<%= render @articulo.comentarios %>
+<h2>Agregue un comentario:</h2>
+<%= render 'comentarios/form' %>

@@ -1,0 +1,13 @@
+<%= form_with model: [ @articulo, @articulo.comentarios.build ] do |form| %>
+    <p>
+    <%= form.label :titulo %><br>
+    <%= form.text_field :titulo %>
+    </p>
+    <p>
+    <%= form.label :cuerpo %><br>
+    <%= form.text_area :cuerpo %>
+    </p>
+    <p>
+    <%= form.submit %>
+    </p>
+<% end %>

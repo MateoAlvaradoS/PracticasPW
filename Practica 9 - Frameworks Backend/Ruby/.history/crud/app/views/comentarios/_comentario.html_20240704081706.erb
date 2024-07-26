@@ -1,0 +1,15 @@
+<p>
+<strong>Titulo:</strong>
+<%= comentario.titulo %>
+</p>
+<p>
+<strong>Comentario:</strong>
+<%= comentario.cuerpo %>
+</p>
+<p>
+<%= link_to "Eliminar", [comentario.articulo, comentario],
+data: {
+turbo_method: :delete,
+turbo_confirm: "¿Estás seguro?"
+} %>
+</p>

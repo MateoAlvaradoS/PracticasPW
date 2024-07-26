@@ -1,0 +1,6 @@
+<h1>Articulos</h1>
+<ul>
+<% @articulos.each do |articulo| %>
+    <li><%= link_to articulo.titulo, articulo %></li>
+    <% end %>
+</ul>
